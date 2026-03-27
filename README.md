@@ -4,7 +4,6 @@ A data-driven framework for optimizing paywall strategy at Quizlet to maximize t
 
 Built on 50,000 synthetic users calibrated to public data from **Duolingo SEC filings**, **RevenueCat subscription benchmarks**, **World Bank PPP data**, and **Google Trends seasonality**.
 
-![Executive Summary](charts/s6_executive_summary.png)
 
 ---
 
@@ -40,7 +39,6 @@ Replace the binary flag with **4 continuous scores (0–100)** computed at 7-day
 - **Readiness Score** — premium feature attempts, checkout abandonment, session acceleration, seasonality
 - **Free-User Value Score** — content creation, ad impressions, class group influence, retention
 
-![Binary vs Continuous](charts/s2_binary_vs_continuous.png)
 
 ### Step 2: Three Prediction Models
 
@@ -52,7 +50,6 @@ All three XGBoost models take ~40 features (raw data + 4 scores) and predict dif
 | Plan Choice | Which plan will they pick? | XGBoost Multiclass | Probability per plan |
 | Retention | How long will they stay active? | XGBoost Regression | Weeks active (0–12) |
 
-![ROC Comparison](charts/s3_binary_vs_ml.png)
 
 ### Step 3: Paywall Optimization
 
@@ -64,7 +61,6 @@ E[LTV] = P(convert) × Subscriber_LTV + P(stay_free) × Free_User_LTV + P(churn)
 
 **5 strategies:** No Paywall, Soft Nudge, Feature Gate, Trial Offer, Hard Paywall — each with calibrated conversion and churn multipliers.
 
-![Revenue Comparison](charts/s4_revenue_comparison.png)
 
 ---
 
@@ -81,7 +77,6 @@ The model identifies **6 behavioral archetypes** with distinct optimal strategie
 | Casual Browser | 14.3% | 0.8% | Trial / No Paywall | **+47.7%** |
 | Tourist | 8.2% | 1.3% | Trial / No Paywall | +16.5% |
 
-![Segment Map](charts/s2_segment_map.png)
 
 ---
 
@@ -98,7 +93,6 @@ Each additional paywall impression has **diminishing conversion benefit** and **
 | Casual Browser | 2 | Easy to lose |
 | Tourist | 0 | Negative EV from first impression |
 
-![Paywall Fatigue](charts/s5_paywall_fatigue.png)
 
 ---
 
@@ -106,7 +100,6 @@ Each additional paywall impression has **diminishing conversion benefit** and **
 
 Feature importance analysis reveals that **Intent Score is the #1 conversion driver** — 2.3x more important than Engagement. The current binary flag is built on the wrong signal.
 
-![SHAP Analysis](charts/s3_shap_conversion.png)
 
 ---
 
@@ -179,6 +172,3 @@ Master of Financial Engineering | UCLA | GPA 4.0
 
 ---
 
-## License
-
-MIT License — see [LICENSE](LICENSE) for details.
